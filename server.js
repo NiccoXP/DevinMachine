@@ -15,7 +15,9 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.post('/api', require('./routes/auth'));
+app.use('/api', require('./routes/auth'));
+
+
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Server working...'
