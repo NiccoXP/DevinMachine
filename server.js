@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('validate.env');
+require('./validate.env');
 const ENV = process.env;
 const express = require('express');
 const app = express();
