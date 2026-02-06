@@ -26,7 +26,7 @@ userSchema.methods.isValidPassword = async (password) => {
   return await bcrypt.compare(password, this.password);
 };
 
-userSchema.methods.generateJWT = () => {
+userSchema.methods.generateToken = () => {
   return jwt.sign({ email: this.email }, process.env.JWT_SECRET);
 };
 
