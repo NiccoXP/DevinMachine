@@ -11,6 +11,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.get('/api', require('./routes/auth'));
