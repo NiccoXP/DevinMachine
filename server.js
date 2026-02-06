@@ -1,8 +1,8 @@
 require('dotenv').config();
 require('./validate.env');
-const ENV = process.env;
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const connectDB = require('./config/db');
 const app = express();
 
@@ -17,7 +17,6 @@ app.use(cors());
 // Routes
 app.use('/api', require('./routes/auth'));
 
-
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Server working...'
@@ -31,11 +30,11 @@ app.get('/', (req, res) => {
 // app.use(errorHandler);
 
 // For Deployment Purpose
-if (ENV.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build/index.html')))
 }
 
 connectDB()
 .then(() => {
-  app.listen(ENV.PORT, () => console.log('Server listening... ❄️'));
+  app.listen(process.env.PORT, () => console.log('Server listening... ❄️'));
 });
