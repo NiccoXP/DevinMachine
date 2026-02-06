@@ -10,7 +10,7 @@ const register = async (req, res) => {
     email,
     password: hashedPassword
   });
-  const token = await User.generateToken();
+  const token = newUser.generateToken();
   delete newUser._doc.password;
   res.status(201).json({
     message: 'Account created successfully',
@@ -28,11 +28,11 @@ const login = async (req, res) => {
   if (!user) return res.status(400).json({
     message: 'Invalid credentials'
   });
-  const validate = await User.isValidPassword(password);
+  const validate = await user.isValidPassword(password);
   if (!validate) return res.status(400).json({
     message: 'Invalid credentials'
   });
-  const token = await User.generateToken();
+  const token = await user.generateToken();
   delete user._doc.password;
   res.status(200).json({
     message: 'Account login successfully',
