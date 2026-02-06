@@ -16,7 +16,11 @@ app.use(cors());
 
 // Routes
 app.post('/api', require('./routes/auth'));
-// app.get('/api', require('./routes/chat'));
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Server working...'
+  })
+});
 
 // Sockets
 
