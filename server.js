@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.get('/api', require('./routes/auth'));
+app.post('/api', require('./routes/auth'));
 // app.get('/api', require('./routes/chat'));
 
 // Sockets
