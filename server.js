@@ -13,13 +13,13 @@ app.use(express.json());
 
 // Routes
 app.get('/api', require('./routes/auth'));
-app.get('/api', require('./routes/chat'));
+// app.get('/api', require('./routes/chat'));
 
 // Sockets
 
 
 // ErrorHandler Middleware 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 // For Deployment Purpose
 if (ENV.NODE_ENV === 'production') {

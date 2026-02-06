@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     minLength: [6, 'Email must be at least 6 characters long'],
     maxLength: [50, 'Email must not be longer than 50 characters']
-  }
+  },
 });
 
 userSchema.statics.hashPassword = async (password) => {

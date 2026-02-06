@@ -11,7 +11,6 @@ const requiredEnvVar = [
   'EMAIL_FROM',
   'EMAIL_FROM_NAME',
   'CLIENT_URL',
-  
 ];
 
 requiredEnvVar.forEach(varName => {
