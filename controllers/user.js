@@ -5,7 +5,7 @@ const register = async (req, res) => {
   if (!email || !password) {
     throw new Error('Email and passport are required.');
   }
-  const hashedPassword = await User.hashedPassword(password);
+  const hashedPassword = await User.hashPassword(password);
   const newUser = await User.create({
     email,
     password: hashedPassword
